@@ -30,13 +30,8 @@
 
 ## 🚨 Tutorial
 
-This repository contains the code corresponding to an in-depth tutorial available on our YouTube
+This repository contains the code corresponding to an in-depth tutorial available on the YouTube
 channel, <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a>.
-
-If you prefer visual learning, this is the perfect resource for you. Follow our tutorial to learn how to build projects
-like these step-by-step in a beginner-friendly manner!
-
-<a href="https://youtu.be/lie0cr3wESQ?si=yLQyhMrYLjpysnqE" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/1736fca5-a031-4854-8c09-bc110e3bc16d" /></a>
 
 ## <a name="introduction">🤖 Introduction</a>
 
@@ -142,11 +137,10 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 
 ## <a name="more">🚀 More</a>
 
-**Advance your skills with Next.js Pro Course**
+**Currently there are a few parts that can be fixed at later date**
 
-Enjoyed creating this project? Dive deeper into our PRO courses for a richer learning adventure. They're packed with
-detailed explanations, cool features, and exercises to boost your skills. Give it a go!
+There are a few implementations that might be fixed later on but I need to move on from this project. I spent more time than thought on trying this whole new system with appwrite, a new experience for me overall.
 
-<a href="https://jsm.dev/gdrive-jsmpro" target="_blank">
-  <img src="public/readme/jsmpro.png" alt="Project Banner">
-</a>
+👉 **Delete Files Global**: For shared files across multiple accounts, the delete file function will delete the file from all users not just on one account.
+
+👉 **Shared Files**: Made it so only the owner can remove shared users. However, I want to implement either not showing the x button for non-owners or a message pop up that says only owner can remove shared users. Non-functional <Toaster /> used in ActionDropdown.tsx.
