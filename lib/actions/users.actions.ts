@@ -98,17 +98,22 @@ export const verifySecret = async ({
 };
 
 export const getCurrentUser = async () => {
-  const { databases, account } = await createSessionClient();
-  const result = await account.get();
-  const user = await databases.listDocuments(
-    appwriteConfig.databaseId,
-    appwriteConfig.userTableId,
-    [Query.equal("accountId", result.$id)]
-  );
+  try {
+    const { databases, account } = await createSessionClient();
 
-  if (user.total <= 0) return null;
+    const result = await account.get();
+    const user = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.userTableId,
+      [Query.equal("accountId", result.$id)]
+    );
 
-  return parseStringify(user.documents[0]);
+    if (user.total <= 0) return null;
+
+    return parseStringify(user.documents[0]);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const signOutUser = async () => {
@@ -117,16 +122,14 @@ export const signOutUser = async () => {
   try {
     await account.deleteSession("current");
     (await cookies()).delete("appwrite-session");
-
-  } catch(error) {
+  } catch (error) {
     handleError(error, "Failed to sign out user");
   } finally {
     redirect("/sign-in");
   }
-}
+};
 
 export const signInUser = async ({ email }: { email: string }) => {
-
   try {
     const existingUser = await getUserByEmail(email);
 
@@ -139,5 +142,4 @@ export const signInUser = async ({ email }: { email: string }) => {
   } catch (error) {
     handleError(error, "Failed to sign in user");
   }
-
-}
+};
